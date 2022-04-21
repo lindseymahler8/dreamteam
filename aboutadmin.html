@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Ole School Redesign" content="A redesign of the Ole School website">
+      <meta name="DreamTeam" content="Lindsey Mahler">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ole School Alumni</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbars/">
+
+<!-- Bootstrap core CSS -->
+<link href="../dreamteam/bootstrap-5.1.3-dist/css/bootstrap-grid.min.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="../dreamteam/bootstrap-5.1.3-examples/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!--Nav styles-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda+One">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<style>
+body {
+	background: white;
+}
+.navbar {		
+	background: #fff;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-bottom: 1px solid #d6d6d6;
+	box-shadow: 0 0 4px rgba(0,0,0,.1);
+}
+.nav-link img {
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	margin: -8px 0;
+	float: left;
+	margin-right: 10px;
+}
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+.nav-link:hover .nav-item:hover{
+    text-decoration: none;
+    color: #3d0859;
+}
+.navbar .navbar-brand {
+	color: #555;
+	padding-left: 0;
+	padding-right: 50px;
+	font-family: 'Merienda One', sans-serif;
+}
+.navbar .navbar-brand i {
+	font-size: 20px;
+}
+.navbar .nav-item i {
+	font-size: 18px
+}
+.navbar .dropdown-item i {
+	font-size: 16px;
+	min-width: 22px;
+}
+.navbar .nav-item.open > a {
+	background: none !important;
+}
+.navbar .dropdown-menu {
+	border-radius: 1px;
+	border-color: #e5e5e5;
+	box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.navbar .dropdown-menu a {
+	color: #3d0859;
+	padding: 8px 20px;
+	line-height: normal;
+}
+.navbar .dropdown-menu a:hover, .navbar .dropdown-menu a:active {
+	color: #333;
+}	
+.navbar .dropdown-item .material-icons {
+	font-size: 21px;
+	line-height: 16px;
+	vertical-align: middle;
+	margin-top: -2px;
+}
+.navbar .badge {
+	color: #fff;
+	background: #000;
+	font-size: 11px;
+	border-radius: 20px;
+	position: absolute;
+	min-width: 10px;
+	padding: 4px 6px 0;
+	min-height: 18px;
+	top: 5px;
+}
+.navbar a.notifications, .navbar a.messages {
+	position: relative;
+	margin-right: 10px;
+}
+.navbar a.messages {
+	margin-right: 20px;
+}
+.navbar a.notifications .badge {
+	margin-left: -8px;
+}
+.navbar a.messages .badge {
+	margin-left: -4px;
+}
+
+.titles {
+    color: #b19c44;
+    font-size: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+.nav-tabs{
+    background-color:#8e729d;
+    border: #3d0859;
+}
+.tab-content{
+    background-color:#8e729d;
+    color:white;
+    padding: 10px;
+}        
+.nav-tabs > li > a{
+    border: #3d0859;
+    color: white;
+}
+.nav-tabs > li > a:hover{
+    background-color: #303136 !important;
+    border: #3d0859;
+    border-radius: 0;
+    color:white;
+}
+.nav-links {
+    color: white;
+}
+.nav-links:hover {
+    color: white;
+    background-color: #b19c44;
+}
+.nav-items {
+    background-color: #3d0859;
+    color: #3d0859;
+        }
+.tabcontent {
+    color: black;
+}
+.newsfeed {
+    color: black;
+    padding: 5px;
+}
+.header-text {
+    color: #3d0859;
+    font-size: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 20px;
+    border: #3d0859;
+    border-width: 4px;
+    border-style: solid;
+}
+.body-text {
+    color: white;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+
+}
+.body-texts {
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    text-align: center;
+}
+.btn, .btn:visited {
+    align-content: center;
+    color: white;
+    background-color: #3d0859;
+    border-color: #3d0859;
+}
+.btn:hover {
+    align-content: center;
+    color: white;
+    background-color: #8e729d;
+    border-color: #8e729d;  
+}
+.btn:active {
+    align-content: center;
+    color: white;
+    background-color: #3d0859;
+    border-color: #3d0859;
+}
+.card-body {
+    background-color: white;
+    padding-top: 20px;
+}
+.card-title {
+    text-align: center;
+    color: #8e729d;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.card-text {
+    color: #3d0859;
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.card-textn1 {
+    text-align: center;
+    color: #3d0859;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+</style>
+
+<!-- Custom styles for this template -->
+<link href="bootstrap-5.1.3-examples/navbars/navbar.css" rel="stylesheet">
+</head>
+
+<body> 
+      <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Fourth navbar example">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="images/dark_logo_transparent_background.png" style="width:60px;"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarsExample04">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="indexadmin.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="aboutadmin.html">About</a>
+              </li>
+			  <li class="nav-item">
+                <a class="nav-link" href="studentlistadmin.html">Students</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Internships</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown04">
+                  <li><a class="dropdown-item" href="addinternshipadmin.html">Add Internships</a></li>
+                  <li><a class="dropdown-item" href="internshipsadmin.html">All Internships</a></li>
+                </ul>
+              </li>
+			  <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Jobs</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown04">
+                  <li><a class="dropdown-item" href="addjobadmin.html">Add Jobs</a></li>
+                  <li><a class="dropdown-item" href="jobsadmin.html">All Jobs</a></li>
+                </ul>
+              </li>
+			  <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Scholarships</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown04">
+                  <li><a class="dropdown-item" href="addscholarshipadmin.html">Add Scholarships</a></li>
+                  <li><a class="dropdown-item" href="scholarshipadmin.html">All Scholarships</a></li>
+                </ul>
+              </li>
+			  <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Applications</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown04">
+                  <li><a class="dropdown-item" href="appinternadmin.html">Internships</a></li>
+                  <li><a class="dropdown-item" href="appjobadmin.html">Jobs</a></li>
+                </ul>
+              </li>
+			  <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Verification</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown04">
+                  <li><a class="dropdown-item" href="verifystudent.html">Verify Students</a></li>
+                  <li><a class="dropdown-item" href="verifymember.html">Verify Members</a></li>
+				  <li><a class="dropdown-item" href="verifysponsor.html">Verify Sponsors</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="navbar-nav">
+                <!-- <a href="#" class="nav-item nav-link notifications"><i class="fa fa-bell-o"></i><span class="badge">1</span></a> -->
+                <!-- <a href="#" class="nav-item nav-link messages"><i class="fa fa-envelope-o"></i><span class="badge">10</span></a></a> -->
+                <div class="nav-item dropdown">
+                    <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="images/me.png" class="avatar" alt="Avatar"> Lindsey Mahler <b class="caret"></b></a>
+                    <div class="dropdown-menu">
+                        <a href="profilefinishedadmin.html" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+                        <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="index.html" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="titles"><b>Learn About The Ole School Alumni</b></div>
+      <br>
+      <div class="needsfeed">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item nav-items" role="presentation">
+                        <button class="nav-link nav-links active" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="true">Our History</button>
+                    </li>
+                    <li class="nav-item nav-items" role="presentation">
+                        <button class="nav-link nav-links" id="team-tab" data-bs-toggle="tab" data-bs-target="#team" type="button" role="tab" aria-controls="team" aria-selected="false">Meet the Team</button>
+                    </li>
+                    <li class="nav-item nav-items" role="presentation">
+                        <button class="nav-link nav-links" id="past-tab" data-bs-toggle="tab" data-bs-target="#past" type="button" role="tab" aria-controls="past" aria-selected="false">Past Awardees</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="history" role="tabpanel" aria-labelledby="history-tab">
+                        <h3 class="header-text"><b>Our History</b></h3>
+                        <br>
+                        <p class="body-text">The Ole School Alumni Group is a grass roots, non-profit organization envisioned by three African American James Madison University (JMU) alumni that graduated in the 1980’s.  They recalled priceless memories and experiences; recognized the value of retaining old & new traditions; saw the need for reconnecting, networking and most importantly, providing scholarships.  Along with numerous other former alumni, they founded the official Ole School Scholarship Fund, Inc. in 2005.</p>
+                        <p class="body-text">The group of alumni and friends committed themselves to giving back to JMU specifically in support of African American recruitment and retention efforts.  The effort was initiated to stimulate and increase the growth and development of the JMU African American students.</p>
+                        <img src="images/landscape.png" width="100%">
+                        <br>
+                        <h3 class="header-text"><b>What We Do</b></h3>
+                        <p class="body-text">The Ole School Scholarship Fund, LLC (“Ole School Alumni Group”) is a 501(c)(3) organization.  It is comprised of James Madison University (“JMU”) African American alumni spanning over 40 years and numbering in upwards of 100+ in membership.  The Ole School Group is focused on African American support to JMU and is also active in the community both individually and collectively as leaders and advocates for African American higher education and professional success.  A contribution to the endowment of the Ole School Alumni Group helps to guarantee continuing support to African Americans at JMU for many years to come, which in turn, helps to open doors of opportunity to many underrepresented students who would otherwise be unable to pursue education at a top tier University.  The Ole School Alumni Group prides itself on being a... </p>
+                        <p class="body-texts">VISIONARY, LEADER, ADVOCATE, and CATALYST!</p>
+                        <div class="row justify-content-center">
+                            <div class="col-3">
+                                <a class="btn btn-primary" href="https://www.paypal.com/donate/?hosted_button_id=Y4D2ZG46MFSTE" role="button"><b>Donate Today!</b></a>
+                            </div>
+                            <div class="col-3">
+                                <a href="scholarshipadmin.html"" class="btn btn-primary"><b>Our Scholarships</b></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="team" role="tabpanel" aria-labelledby="team-tab">
+                        <h3 class="header-text">Leadership Team</h3>
+                        <div class="card mb-3" style="max-width: 960px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="images/jmu.JPG" class="img-fluid rounded-start" style="padding-top: 20px;" alt="holderphoto">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title"><b>Derek Steele</b></h5>
+                                  <p class="card-textn1">Master of Education, Educational Administration and Supervision; Virginia Polytechnic Institute and State University, May 2011, Bachelor of Science; Psychology (Major) Business Administration (Minor) James Madison University, May 1984</p>
+                                  <p class="card-text"><small>Proven leadership and capacity-building skills, Programmatic implementation and management skills, knowledgeable about research-based instructional best practices, Oral presentation and written communication skills, Interpersonal and human relations skills. Currently serves as Assistant Principal at Mount Vernon HS, Fairfax County Public Schools, former AVID District Director within FCPS,</small></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3" style="max-width: 960px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="images/jmu.JPG" class="img-fluid rounded-start" style="padding-top: 40px;" alt="holderphoto">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title"><b>Malcolm Taylor</b></h5>
+                                  <p class="card-textn1">Bachelor of Science in Social Work, with a focus in Criminal Justice, JMU, 1982</p>
+                                  <p class="card-text"><small>Retired CEO of Virginia Correctional Enterprises, the manufacturing division of the Virginia Department of Corrections. Previously selected as first Regional Operations Chief for the Central Region of the Virginia Department of Corrections. Over 30 years’ service in a myriad of operations leadership roles: Acting Deputy Director of Community Corrections, Eastern Regional Director, Chief Probation & Parole Officer of the 11th Judicial Circuit of Virginia.</small></p>
+                                  <p class="card-text"><small>Taylor has also served as Western Regional Manager, Western Region Transition Specialist (Senior Probation Officer), and one of the first Senior Probation Officers created by the Virginia General Assembly in 1991. He is a Guest Lecturer at several Virginia colleges and universities over the past 15 years.  His interests include sharing field experiences with students matriculating at JMU in Justice Services, Sociology, or Psychology.</small></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3" style="max-width: 960px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="images/jmu.JPG" class="img-fluid rounded-start" style="padding-top: 60px;" alt="holderphoto">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title"><b>Charles May</b></h5>
+                                  <p class="card-textn1">Bachelor of Science in Communication, James Madison University, 1983; Master of Arts, in Organizational Leadership, American Military University 2007.</p>
+                                  <p class="card-text"><small>Currently Retired (May 2018 NCIS; 2013 US Army Reserves) and currently serves as President and CEO of C&M Enterprises which is a family owned property management LLC providing affordable housing and services within the Park Place community in Norfolk VA since 1974.  As an NCIS agent Charles served within the Senior Executive Service (SES) ranks as the Executive Assistant Director for Atlantic Operations, for the Naval Criminal Investigative Service (EADLANT-NCIS) providing federal Law Enforcement support and oversight to Africa, Europe, Middle East, South America, Canada, the Caribbean, and everything east of the Mississippi River in full support of the Department of the Navy (DON) criminal investigations, counter intelligence, counter terrorism and cyber programs. Additionally, Charles served as Chairman of the NCIS Directors' Committee for Diversity and Inclusion Program (DCDI), and created NCIS’ first diversity office. I served NCIS for 35 years and 31 years as a senior level Army Signal Corps officer in the US Army Reserves. His support interests are mentorship, "leadership," and service.</small></p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3" style="max-width: 960px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="images/jmu.JPG" class="img-fluid rounded-start" style="padding-top: 10px;" alt="holderphoto">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title"><b>Angela J. Russell</b></h5>
+                                  <p class="card-textn1">Currently serves as Director of Managed Care for Bon Secours Health System (Virginia Division).  In this capacity, I negotiate contracts with insurance companies and manage patient revenues in excess of $2B annually for our hospitals (8), ancillary sites (including nursing homes, home health agencies, hospice centers, Urgent and FastCare centers, and approx. 24 therapy centers), and physician practices (approx. 400 physicians).  She has served in healthcare management for approximately 31 years.</p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3" style="max-width: 960px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="images/jmu.JPG" class="img-fluid rounded-start" style="padding-top: 30px;" alt="holderphoto">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title"><b>George Harris 111</b></h5>
+                                  <p class="card-textn1">Harris currently manages the Bankruptcy Division of Legal Department for Multistate Corporation. Harris designs, implements and analyzes all operational bankruptcy business to include but not limited to:</p>
+                                  <p class="card-textn1">Development of policy, procedures and compliance practice with upper level management of the Corporation.  Oversees and manages activities of all in house staff and outside attorneys. Reviews and approves credit applications for individual customers.</p>
+                                  <p class="card-text"><small>Harris represent the company, in court, tribunals, and in meetings with legal representatives </small></p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3" style="max-width: 960px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="images/jmu.JPG" class="img-fluid rounded-start" style="padding-top: 70px;" alt="holderphoto">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title"><b>Angela L. Russell</b></h5>
+                                  <p class="card-textn1">Bachelor of Science, Living Sciences, James Madison University, 1985. Russell has served for Over 27 years in the mental health and social service field in various positions (Career/Academic Counselor, Resident Counselor, Employment Specialist, Program Coordinator, Psychotherapist); President and CEO of two companies: In Search of Peace (Mental Health Private Practice) and Unplug with Angela (Life Coach & Retreat Leader);</p>
+                                  <p class="card-text"><small>Russell also has spent the last 14 years serving as a psychotherapist specializing in the areas of depression, anxiety, grief and loss, ADHD,  and impaired relationships.  She has assisted more than 150 clients (including teens, adults, families and couples) to a place where they can successfully manage their lives on their own.</small></p>
+                                  <p class="card-text"><small>As a Life Coach and Retreat Leader, Russell encourages wo(men) to give themselves permission to slow down from the “busyness” of life by providing custom retreats in the Washington Metropolitan area and abroad; Family Team Meeting Supervisor with DC Child and Family Services Agency for the past 10 years.  Her team has been instrumental in preventing hundreds of children from being placed in the foster care system on an annual basis in addition to finding permanency for those children who are in care.</small></p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3" style="max-width: 960px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="images/jmu.JPG" class="img-fluid rounded-start" style="padding-top: 60px;" alt="holderphoto">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title"><b>Marvin Stith</b></h5>
+                                  <p class="card-textn1">Bachelor of Business Administration, Accounting, James Madison University, 1983.</p>
+                                  <p class="card-text"><small>Stith has over 25 years of Federal civilian service as an auditor for the Department of Defense, United States Postal Service and the National Credit Union Administration (NCUA).  He currently serves as a Senior Auditor for the NCUA Office of Inspector General. </small></p>
+                                  <p class="card-text"><small>Stith plans, manages and conducts audits of cybersecurity related and other information technology-related NCUA programs.  Also conducted audits of credit union Mortgage Backed Security investment programs, credit union home loan programs etc. associated with credit union failures and losses to the NCUA Share Insurance Fund.</small></p>
+                                  <p class="card-text"><small>Stith also served from 1983 through 1993 as an officer in the US Army (via the JMU Army ROTC program) with the Corp of Engineers and Finance Corps.  He served tours of duty in Operations Desert Shield and Desert Storm.</small></p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3" style="max-width: 960px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="images/jmu.JPG" class="img-fluid rounded-start" style="padding-top: 40px;" alt="holderphoto">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title"><b>Kimberley Hundley</b></h5>
+                                  <p class="card-textn1">Bachelor of Science, Early Childhood, James Madison University, 1984.</p>
+                                  <p class="card-text"><small>Hundley recently retired after teaching kindergarten for 34 years.  She spent 26 years teaching in Williamsburg James City County Public Schools.  Distinguishing Qualities include, Nationally Board Certified in 2010; Cooperating Teacher for student teachers at JMU and William & Mary; Minority Engagement Advocate for Williamsburg Public Schools (Duties include conducting Diversity Training for staff); Staff Development Trainer for Williamsburg Public Schools (Duties include conducting staff development on Building Relationships in the classroom and community) </small></p>
+                                  <p class="card-text"><small>Hundley is currently the President of the Teachers Association.  She serves on the executive Board for Stonehouse Presbyterian Church Preschool and is a Church Leader for Sunday School Youth ages 5-12 at Jamestown Christian Fellowship.</small></p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3" style="max-width: 960px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="images/jmu.JPG" class="img-fluid rounded-start" alt="holderphoto">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title"><b>Devena McLaurine</b></h5>
+                                  <p class="card-textn1">Bachelor of Science, Psychology, 1986.</p>
+                                  <p class="card-text"><small>McLaurine serves as Executive Director, Fredericksburg Savings Charitable Foundation since 1998.  She coordinates the approval and distribution of $1-2M in annual grant funds to local nonprofits with primary focus on education, health and community service.  Prior to joining the Foundation, McLaurine served as a development associate with the science fund raising team of The Nature Conservancy for ten years. Her interest is in sharing experiences related to philanthropy and community service.</small></p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card mb-3" style="max-width: 960px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="images/jmu.JPG" class="img-fluid rounded-start" alt="holderphoto">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title"><b>Lesa Diggs</b></h5>
+                                  <p class="card-textn1">James Madison University, Office Administration</p>
+                                  <p class="card-text"><small>Diggs is a Legal Assistant and CEO of LJM Enterprises, LLC which instills the importance of health, wellness and financial security.  She is currently in the process of adding day trading to her business portfolio.  She is a Board member of the Vickie Belk Scholarship Foundation at Oakland Baptist Church in Alexandria, VA and guest/motivational speaker for women's organizations in DC, Maryland and Virginia.  Her interests are in helping people focus in on their passion.</small></p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 400px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/arianaf.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Ariana Faison</b></h5>
+                                                <p class="card-textn1">Incoming '21</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 400px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/aliyahw.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Aliyah Walker</b></h5>
+                                                <p class="card-textn1">Incoming '21</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/oliviap.png" class="img-fluid rounded-start" style="max-height: 250px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Olivia Page</b></h5>
+                                                <p class="card-textn1">Retention '21</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/coreyp.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Corey Peters, JR.</b></h5>
+                                                <p class="card-textn1">Incoming '20</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/alexism.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Alexis Meade</b></h5>
+                                                <p class="card-textn1">Retention '20</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/jadea.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Jade Allen</b></h5>
+                                                <p class="card-textn1">Incoming '19</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/alexisw.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Alexis West</b></h5>
+                                                <p class="card-textn1">Retention '19</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/dandrac.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>D'Andra Crawley</b></h5>
+                                                <p class="card-textn1">Incoming '18</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/bryceb.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Bryce Bouldin</b></h5>
+                                                <p class="card-textn1">Incoming '18</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/courtneyd.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Courtney Davis</b></h5>
+                                                <p class="card-textn1">Incoming '17</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/semajs.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Se'Maj Sorhaindo</b></h5>
+                                                <p class="card-textn1">Retention '17</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/randallc.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Randall Clayton</b></h5>
+                                                <p class="card-textn1">Retention '16</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/kendrah.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Kendra Hall</b></h5>
+                                                <p class="card-textn1">Incoming '15</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/ericd.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Eric Diggs</b></h5>
+                                                <p class="card-textn1">Retention '15</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/briannam.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Brianna Major</b></h5>
+                                                <p class="card-textn1">Incoming '14</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/destinys.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Destiny Simmons</b></h5>
+                                                <p class="card-textn1">Retention '14</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/jonathanb.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Jonathan Bonham</b></h5>
+                                                <p class="card-textn1">Incoming '13</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/johnh.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>John Harper</b></h5>
+                                                <p class="card-textn1">Retention '13</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/kacyw.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Kacy Williams</b></h5>
+                                                <p class="card-textn1">Retention '12</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/isaach.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Isaac Hargrove</b></h5>
+                                                <p class="card-textn1">Incoming '11</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/jasminew.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Jasmine Walker</b></h5>
+                                                <p class="card-textn1">Retention '11</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/raeds.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Rae Danielle Swain</b></h5>
+                                                <p class="card-textn1">Incoming '10</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/jessicaj.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Jessica Jones</b></h5>
+                                                <p class="card-textn1">Retention '10</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/iang.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Ian Green</b></h5>
+                                                <p class="card-textn1">Incoming '09</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/candacet.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Candace Taylor</b></h5>
+                                                <p class="card-textn1">Retention '09</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/angelm.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Angel Motley</b></h5>
+                                                <p class="card-textn1">Incoming '08</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 460px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/ashleighk.png" class="img-fluid rounded-start" style="max-height: 300px;" alt="holderphoto">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Ashleigh Kenion</b></h5>
+                                                <p class="card-textn1">Retention '08</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="../dreamteam/bootstrap-5.1.3-examples/assets/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+
+
+
+</html>
+
+
+
+
